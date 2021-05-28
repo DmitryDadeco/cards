@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import { RootStoreProvider } from '../src/providers/RootStoreProvider';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const App = ({
+  Component,
+  pageProps,
+}) => (
+  <RootStoreProvider hydrationData={pageProps.hydrationData}>
+    <Component {...pageProps} />
+  </RootStoreProvider>
+);
 
-export default MyApp
+export default App;
